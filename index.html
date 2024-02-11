@@ -1,0 +1,72 @@
+<!DOCTYPE html
+<html><head>
+<title>Necroxis Research</title><style>
+	body{
+			background-color: #2B2C2E;
+			color: white;
+			font-family: Arial, sans-serif;
+		}
+		h1{
+			text-align: center;
+		}
+		.button{
+			display: inline-block;
+			padding: 10px 20px;
+			margin: 10px;
+			border-radius: 5;
+			text-decoration: none;
+			color: white;
+			background-color: #4CAF50;
+		}
+		.button:hover{
+			background-color: #3e8e41;
+		}
+	  .note-container{
+			display: flex;
+			justify-content: flex-end;
+			margin-right: 10px;
+		}
+		.note-box{
+			height: 200px;
+			width: 300px;
+			border: 1px solid black;
+			padding: 10px;
+			margin-top: 10px;
+		}
+	</style></head><body>
+	<h1>Necroxis Research</h1>
+	<a class="button" href="https://sci-hub.se/" target="_blank">SciHub</a>
+	<a class="button" href="https://www.wosonhj.com/" target="_blank">Woson</a>
+  <a class="button" href="https://www.scopus.com/" target="_blank">Scopus</a>
+  <a class="button" href="https://www.lens.org/" target="_blank">Lens</a>
+  <div style="text-align: center;">    <form action="https://.google.comsearch" method="" target="_blank style="display:-block;">
+    <input type="" name="q" placeholder="Type">
+    <input type="" value="Google It">
+</form>
+<form action="https://scholar.google.com/scholar?q=" method="get" target="_blank" style="display: inline-block;">
+    <input type="text" name="q" placeholder="Type for Scholar Search">
+    <input type="submit" value="Google Scholar It">
+</form>
+</div>>
+	<div class="note-container">
+		<textarea class="note-box"></textarea>
+		<button class="save-note-button">Save It</button>
+	</div>
+	<script>
+		const noteBox = document.querySelector('.note-box');
+		const saveNoteButton = document.querySelector('.save-note-button');
+
+		saveNoteButton.addEventListener('click', () => {
+			const noteText = noteBox.value;
+			const noteFile = new Blob([noteText], {type: 'text/plain'});
+			saveAs(noteFile, 'note.txt');
+		});
+
+		function saveAs(blob, fileName) {
+			const link = document.createElement('a');
+			link.href = URL.createObjectURL(blob);
+			link.download = fileName;
+			link.click();
+		}
+	</script>
+</body></html>
